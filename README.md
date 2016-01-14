@@ -1,6 +1,6 @@
 # Cronenberg
 
-A Ruby vSphere API helper that wraps [rbvmomi](github.com/vmware/rbvmomi/), aiming to simplify certain basic tasks.
+A Ruby vSphere API helper that wraps [rbvmomi](https://github.com/vmware/rbvmomi/), aiming to simplify certain basic tasks.
 
 ## Installation
 
