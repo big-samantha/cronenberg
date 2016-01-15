@@ -1,6 +1,6 @@
 require "cronenberg/version"
 require "cronenberg/config"
-require "cronenberg/connection.rb"
+require "cronenberg/connection"
 require 'rbvmomi'
 
 module Cronenberg
