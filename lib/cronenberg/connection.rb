@@ -4,20 +4,18 @@ require 'cronenberg/config'
 module Cronenberg
   class Cronenberg::Connection
     attr_reader :vim, :host, :user, :insecure, :ssl
-    def config
-      @@config = Cronenberg::Config.new
-    end
+
+    CONFIG = Cronenberg::Config.new
 
     def initialize(credentials_override=nil)
-      config
       credentials_builtin = {
-        host: @@config.host,
-        user: @@config.user,
-        password: @@config.password,
-        insecure: @@config.insecure,
-        ssl: @@config.ssl,
+        host: CONFIG.host,
+        user: CONFIG.user,
+        password: CONFIG.password,
+        insecure: CONFIG.insecure,
+        ssl: CONFIG.ssl,
       }
-      credentials_builtin[:port] = config.port if config.port
+      credentials_builtin[:port] = CONFIG.port if CONFIG.port
 
       credentials = credentials_override || credentials_builtin
 
