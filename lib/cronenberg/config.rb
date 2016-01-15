@@ -9,12 +9,10 @@ module Cronenberg
 
 		attr_reader :host, :user, :password, :datacenter, :insecure, :port, :ssl
 
-		def default_config_location
-			File.join(Dir.home, '.vcenter.conf')
-		end
+    DEFAULT_CONFIG_LOCATION = File.join(Dir.home, '.vcenter.conf')
 
 		def initialize(config_file_location=nil)
-      settings = process_environment_variables || process_config_file(config_file_location || default_config_location)
+      settings = process_environment_variables || process_config_file(config_file_location || DEFAULT_CONFIG_LOCATION)
 			if settings.nil?
 				raise 'You must provide credentials in either environment variables or a config file.'
 			else
@@ -89,9 +87,5 @@ module Cronenberg
 				end
 			end
 		end	
-
-
-
-
   end
 end
