@@ -8,6 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = Cronenberg::VERSION
   spec.authors       = ["Zee Alexander"]
   spec.email         = ["zee@zee.space"]
+  spec.license       = 'Apache-2.0'
 
   spec.summary       = 'A Ruby vSphere API helper that wraps rbvmomi, aiming to simplify certain basic tasks.'
   spec.homepage      = "https://github.com/pizzaops/cronenberg"
