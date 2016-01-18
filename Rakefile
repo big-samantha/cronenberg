@@ -11,6 +11,7 @@ task :console do
     exec "pry -r cronenberg -I ./lib"
 end
 
+desc 'Start a pry console with Cronenberg loaded and dummy configuration'
 task :console_dummy_envvars do
   ENV['VCENTER_SERVER']='pizzacenter.pizza.com'
   ENV['VCENTER_USER']='pizzacenter'
@@ -18,6 +19,8 @@ task :console_dummy_envvars do
   Rake::Task[:console].execute
 end
 
+
+desc 'Start a pry console with Cronenberg loaded and accept configuration arguments'
 task :console_set_envvars, [:server,:user] do |task, args|
   ENV['VCENTER_SERVER'] = args[:server]
   ENV['VCENTER_USER']= args[:user]
