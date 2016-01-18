@@ -12,9 +12,26 @@ describe Cronenberg::Config do
       }
     end
 
+    let(:config_hash_partial) do
+      {
+        host: 'vsphere.pizza.com',
+        user: 'pizzamaster5000',
+      }
+    end
+
     context "with no env variables or config file" do
       it "should raise a RunTime error" do
         expect{ Cronenberg::Config.new }.to raise_error(RuntimeError)
+      end
+    end
+
+    context "with partial env vars or config file" do
+      before do
+        allow_any_instance_of(Cronenberg::Config).to receive(:process_environment_variables).and_return(config_hash_partial)
+      end
+
+      it "should raise a RunTime error listing missing config items" do
+        expect { Cronenberg::Config.new }.to raise_error(RuntimeError, /missing settings/)
       end
     end
 
@@ -31,4 +48,3 @@ describe Cronenberg::Config do
     end
   end
 end
-
