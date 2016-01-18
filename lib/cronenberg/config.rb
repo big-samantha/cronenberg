@@ -19,7 +19,7 @@ module Cronenberg
         settings = settings.delete_if { |k, v| v.nil? }
         missing = REQUIRED_VALUES[:names] - settings.keys
         unless missing.empty?
-          message = 'To use this module you must provide the following settings:'
+          message = 'To use this module you must provide the following missing settings:'
           missing.each do |var|
             message += " #{var}"
           end
